@@ -1,0 +1,52 @@
+<div class="row mb-4">
+    <div class="col">
+        <h2>Transaction History</h2>
+        <p class="text-muted">View all your past trades</p>
+    </div>
+</div>
+
+
+{{> navbar}}
+
+
+
+{{#if transactions}}
+<div class="card">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover mb-0">
+        <thead class="table-dark">
+          <tr>
+            <th>Date/Time</th>
+            <th>Stock</th>
+            <th>Type</th>
+            <th>Quantity</th>
+            <th>Price Per Share</th>
+            <th>Total Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each transactions}}
+          <tr>
+            <td><small>{{timestamp}}</small></td>
+            <td><strong>{{stockSymbol}}</strong></td>
+            <td><span class="text-uppercase">{{transactionType}}</span></td>
+            <td>{{quantity}}</td>
+            <td>${{pricePerShare}}</td>
+            <td><strong>${{totalAmount}}</strong></td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{{else}}
+<div class="card text-center p-5">
+  <div class="card-body">
+    <h5>No transactions yet</h5>
+    <p class="text-muted">Start trading to see your history!</p>
+    <a href="/dashboard" class="btn btn-primary">Browse Stocks</a>
+  </div>
+</div>
+{{/if}}

@@ -1,0 +1,74 @@
+{{> navbar}}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+
+        <!-- Stock Info Card -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h2 class="mb-1">{{symbol}}</h2>
+                        <p class="text-muted mb-0">{{stockName}}</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <h3 class="cash-balance mb-0">${{stockPrice}}</h3>
+                        <small class="text-muted">Current Price</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Account Summary Cards -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h6 class="card-title text-muted">Cash Balance</h6>
+                        <h4 style="color: var(--secondary)">${{cashBalance}}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h6 class="card-title text-muted">Shares Owned</h6>
+                        <h4 class="cash-balance">{{ownedShares}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trade Form Card -->
+        <div class="card">
+            <div class="card-body p-4">
+                <h4 class="mb-4">Place Order</h4>
+
+                <form method="POST" action="/trade">
+                    <input type="hidden" name="symbol" value="{{symbol}}">
+
+                    <div class="mb-4">
+                        <label for="trade_action" class="form-label">Order Type</label>
+                        <select id="trade_action" name="trade_action" class="form-select form-select-lg" required>
+                            <option value="buy">Buy</option>
+                            <option value="sell">Sell</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="quantity" class="form-label">Quantity</label>
+                        <input type="number" id="quantity" name="quantity" class="form-control form-control-lg"
+                            placeholder="Enter shares (fractional allowed)" step="0.01" min="0.01" required>
+                        <small class="text-muted">Fractional shares supported (e.g., 0.5, 1.25)</small>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg">Submit Order</button>
+                        <a href="/dashboard" class="btn btn-outline-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

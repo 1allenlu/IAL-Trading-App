@@ -1,0 +1,16 @@
+{{> navbar}}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body text-center p-5">
+                <div class="mb-4">
+                    <h1 style="font-size: 4rem; color: var(--danger);">⚠️</h1>
+                </div>
+                <h3 class="mb-3">{{errorTitle}}</h3>
+                <p class="text-muted mb-4">{{errorMessage}}</p>
+                <a href="{{backLink}}" class="btn btn-primary">{{backText}}</a>
+            </div>
+        </div>
+    </div>
+</div>

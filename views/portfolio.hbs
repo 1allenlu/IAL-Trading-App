@@ -1,0 +1,83 @@
+<div class="row mb-4">
+    <div class="col">
+        <h2>Your Portfolio</h2>
+    </div>
+</div>
+
+{{> navbar}}
+
+<!-- Summary Cards -->
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card text-center">
+            <div class="card-body">
+                <h6 class="card-title text-muted">Total Portfolio Value</h6>
+                <h3 class="cash-balance">${{totalValue}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-center">
+            <div class="card-body">
+                <h6 class="card-title text-muted">Cash Balance</h6>
+                <h3 style="color: var(--secondary)">${{cashBalance}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-center">
+            <div class="card-body">
+                <h6 class="card-title text-muted">Total P&L</h6>
+                <h3 class="{{totalPLClass}}">${{totalPL}}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Holdings Table -->
+<h3 class="mb-3">Your Holdings</h3>
+
+{{#if holdings}}
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Stock</th>
+                <th>Quantity</th>
+                <th>Avg Cost</th>
+                <th>Current Price</th>
+                <th>Current Value</th>
+                <th>P&L</th>
+                <th>P&L %</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each holdings}}
+            <tr>
+                <td><strong>{{symbol}}</strong><br><small class="text-muted">{{name}}</small></td>
+                <td>{{quantity}}</td>
+                <td>${{avgCost}}</td>
+                <td>${{currentPrice}}</td>
+                <td><strong>${{currentValue}}</strong></td>
+                <td class="{{profitLossClass}}">${{profitLoss}}</td>
+                <td class="{{profitLossClass}}">{{profitLossPercent}}%</td>
+                <td>
+                    <a href="/trade/{{symbol}}" class="btn btn-primary btn-sm">
+                        <i class="bi bi-graph-up-arrow"></i> Trade
+                    </a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+{{else}}
+<div class="card text-center p-5">
+    <div class="card-body">
+        <h5>No holdings yet</h5>
+        <p class="text-muted">Start building your portfolio!</p>
+        <a href="/dashboard" class="btn btn-primary">Browse Stocks</a>
+    </div>
+</div>
+{{/if}}

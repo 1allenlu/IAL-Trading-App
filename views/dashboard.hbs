@@ -1,0 +1,39 @@
+<div class="row mb-4">
+    <div class="col">
+        <h2>Welcome, {{username}}!</h2>
+    </div>
+</div>
+
+{{> navbar}}
+
+
+<div class="card mb-4">
+    <div class="card-body text-center">
+        <h5 class="card-title text-muted">Cash Balance</h5>
+        <div class="cash-balance">${{cashBalance}}</div>
+    </div>
+</div>
+
+<h3 class="mb-3">Available Stocks</h3>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Symbol</th>
+                <th>Company</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each stocks}}
+            <tr>
+                <td><strong>{{symbol}}</strong></td>
+                <td>{{name}}</td>
+                <td>${{price}}</td>
+                <td><a href="/trade/{{symbol}}" class="btn btn-primary btn-sm">Trade</a></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

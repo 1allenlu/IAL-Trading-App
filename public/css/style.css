@@ -1,0 +1,128 @@
+/* Custom Fintech Color Scheme */
+:root {
+    --primary: #8b5cf6;
+    /* Electric purple */
+    --secondary: #3b82f6;
+    /* Vibrant blue */
+    --dark: #1e293b;
+    /* Dark charcoal */
+    --success: #059669;
+    /* Emerald green */
+    --danger: #f43f5e;
+    /* Coral red */
+    --bg: #fafafa;
+    /* Near-white */
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--dark);
+    font-family: 'Inter', -apple-system, sans-serif;
+}
+
+/* Override Bootstrap button colors */
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: #7c3aed;
+    border-color: #7c3aed;
+}
+
+/* Custom navbar */
+.navbar {
+    background-color: var(--dark) !important;
+}
+
+.navbar .nav-link {
+    color: white !important;
+}
+
+.navbar .nav-link:hover {
+    color: var(--primary) !important;
+}
+
+/* Card styling */
+.card {
+    border: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Table header */
+.table-dark {
+    background-color: var(--dark);
+}
+
+/* Profit/Loss colors */
+.profit {
+    color: var(--success);
+    font-weight: 600;
+}
+
+.loss {
+    color: var(--danger);
+    font-weight: 600;
+}
+
+/* Cash balance highlight */
+.cash-balance {
+    color: var(--primary);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+
+.card {
+    border: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    /* Add this */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(139, 92, 246, 0.3);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    transform: scale(1.05);
+}
+
+.table tbody tr {
+    transition: background-color 0.2s;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(139, 92, 246, 0.1);
+    cursor: pointer;
+}
+
+.cash-balance {
+    color: var(--primary);
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
